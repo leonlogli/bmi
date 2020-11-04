@@ -1,4 +1,7 @@
+import 'package:bmi/bmi_card.dart';
+import 'package:bmi/icon_label.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const cardColor = Color(0xFF1D1E33);
 
@@ -22,11 +25,19 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 child: BmiCard(
                   bgColor: cardColor,
+                  child: IconLabel(
+                    icon: FontAwesomeIcons.mars,
+                    label: "MALE",
+                  ),
                 ),
               ),
               Expanded(
                 child: BmiCard(
                   bgColor: cardColor,
+                  child: IconLabel(
+                    icon: FontAwesomeIcons.venus,
+                    label: "FEMALE",
+                  ),
                 ),
               ),
             ],
@@ -58,25 +69,6 @@ class _InputPageState extends State<InputPage> {
             height: 80,
           )
         ],
-      ),
-    );
-  }
-}
-
-class BmiCard extends StatelessWidget {
-  final Color bgColor;
-
-  BmiCard({
-    @required this.bgColor,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: bgColor,
       ),
     );
   }
