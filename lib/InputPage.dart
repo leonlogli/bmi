@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const cardColor = Color(0xFF1D1E33);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -19,19 +21,19 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: BmiCard(
-                  bgColor: Color(0xFF1D1E33),
+                  bgColor: cardColor,
                 ),
               ),
               Expanded(
                 child: BmiCard(
-                  bgColor: Color(0xFF1D1E33),
+                  bgColor: cardColor,
                 ),
               ),
             ],
           )),
           Expanded(
             child: BmiCard(
-              bgColor: Color(0xFF1D1E33),
+              bgColor: cardColor,
             ),
           ),
           Expanded(
@@ -39,16 +41,22 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: BmiCard(
-                  bgColor: Color(0xFF1D1E33),
+                  bgColor: cardColor,
                 ),
               ),
               Expanded(
                 child: BmiCard(
-                  bgColor: Color(0xFF1D1E33),
+                  bgColor: cardColor,
                 ),
               ),
             ],
           )),
+          Container(
+            color: Color(0xFFEB1555),
+            margin: EdgeInsets.only(top: 10),
+            width: double.infinity,
+            height: 80,
+          )
         ],
       ),
     );
