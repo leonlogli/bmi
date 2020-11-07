@@ -3,7 +3,8 @@ import 'package:bmi/icon_label.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const cardColor = Color(0xFF1D1E33);
+const cardColor = Color(0xFF111328);
+const activeCardColor = Color(0xFF1D1E33);
 
 class InputPage extends StatefulWidget {
   @override
@@ -11,6 +12,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  int activeCard = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,20 +26,34 @@ class _InputPageState extends State<InputPage> {
               child: Row(
             children: [
               Expanded(
-                child: BmiCard(
-                  bgColor: cardColor,
-                  child: IconLabel(
-                    icon: FontAwesomeIcons.mars,
-                    label: "MALE",
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      activeCard = 1;
+                    });
+                  },
+                  child: BmiCard(
+                    bgColor: activeCard == 1 ? activeCardColor : cardColor,
+                    child: IconLabel(
+                      icon: FontAwesomeIcons.mars,
+                      label: "MALE",
+                    ),
                   ),
                 ),
               ),
               Expanded(
-                child: BmiCard(
-                  bgColor: cardColor,
-                  child: IconLabel(
-                    icon: FontAwesomeIcons.venus,
-                    label: "FEMALE",
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      activeCard = 2;
+                    });
+                  },
+                  child: BmiCard(
+                    bgColor: activeCard == 2 ? activeCardColor : cardColor,
+                    child: IconLabel(
+                      icon: FontAwesomeIcons.venus,
+                      label: "FEMALE",
+                    ),
                   ),
                 ),
               ),
@@ -44,7 +61,7 @@ class _InputPageState extends State<InputPage> {
           )),
           Expanded(
             child: BmiCard(
-              bgColor: cardColor,
+              bgColor: activeCardColor,
             ),
           ),
           Expanded(
@@ -52,12 +69,12 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: BmiCard(
-                  bgColor: cardColor,
+                  bgColor: activeCardColor,
                 ),
               ),
               Expanded(
                 child: BmiCard(
-                  bgColor: cardColor,
+                  bgColor: activeCardColor,
                 ),
               ),
             ],
