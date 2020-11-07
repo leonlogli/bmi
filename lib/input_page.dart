@@ -6,16 +6,21 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 const cardColor = Color(0xFF111328);
 const activeCardColor = Color(0xFF1D1E33);
 
+enum Gender { male, female }
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
-  int activeCard = 0;
+  Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
+    final isMale = selectedGender == Gender.male;
+    final isFemale = selectedGender == Gender.female;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
@@ -29,11 +34,11 @@ class _InputPageState extends State<InputPage> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      activeCard = 1;
+                      selectedGender = Gender.male;
                     });
                   },
                   child: BmiCard(
-                    bgColor: activeCard == 1 ? activeCardColor : cardColor,
+                    bgColor: isMale ? activeCardColor : cardColor,
                     child: IconLabel(
                       icon: FontAwesomeIcons.mars,
                       label: "MALE",
@@ -45,11 +50,11 @@ class _InputPageState extends State<InputPage> {
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      activeCard = 2;
+                      selectedGender = Gender.female;
                     });
                   },
                   child: BmiCard(
-                    bgColor: activeCard == 2 ? activeCardColor : cardColor,
+                    bgColor: isFemale ? activeCardColor : cardColor,
                     child: IconLabel(
                       icon: FontAwesomeIcons.venus,
                       label: "FEMALE",
