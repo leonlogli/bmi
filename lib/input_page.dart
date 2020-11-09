@@ -1,10 +1,8 @@
 import 'package:bmi/bmi_card.dart';
+import 'package:bmi/constants.dart';
 import 'package:bmi/icon_label.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-const cardColor = Color(0xFF111328);
-const activeCardColor = Color(0xFF1D1E33);
 
 enum Gender { male, female }
 
@@ -15,6 +13,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +25,7 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
               child: Row(
@@ -63,6 +63,41 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: BmiCard(
               bgColor: activeCardColor,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'HEIGHT',
+                    style: textStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    children: [
+                      Text(
+                        height.toString(),
+                        style: boldTextStyle,
+                      ),
+                      Text(
+                        "cm",
+                        style: textStyle,
+                      )
+                    ],
+                  ),
+                  Slider(
+                    value: height.toDouble(),
+                    min: 120,
+                    max: 220,
+                    activeColor: Color(0xFFEB1555),
+                    inactiveColor: Color(0xFF8D8E98),
+                    onChanged: (newValue) {
+                      setState(() {
+                        height = newValue.round();
+                      });
+                    },
+                  )
+                ],
+              ),
             ),
           ),
           Expanded(

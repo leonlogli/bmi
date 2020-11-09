@@ -1,3 +1,4 @@
+import 'package:bmi/constants.dart';
 import 'package:flutter/material.dart';
 
 class IconLabel extends StatelessWidget {
@@ -14,17 +15,11 @@ class IconLabel extends StatelessWidget {
         Icon(
           icon,
           size: 80,
-          color: Color(0xFF8D8E98),
         ),
         SizedBox(
           height: 15,
         ),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 18,
-          ),
-        )
+        Text(label, style: textStyle)
       ],
     );
   }
