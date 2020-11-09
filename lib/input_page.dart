@@ -1,4 +1,5 @@
 import 'package:bmi/bmi_card.dart';
+import 'package:bmi/bmi_slider.dart';
 import 'package:bmi/constants.dart';
 import 'package:bmi/icon_label.dart';
 import 'package:flutter/material.dart';
@@ -84,18 +85,13 @@ class _InputPageState extends State<InputPage> {
                       )
                     ],
                   ),
-                  Slider(
-                    value: height.toDouble(),
-                    min: 120,
-                    max: 220,
-                    activeColor: Color(0xFFEB1555),
-                    inactiveColor: Color(0xFF8D8E98),
-                    onChanged: (newValue) {
-                      setState(() {
-                        height = newValue.round();
-                      });
-                    },
-                  )
+                  BmiSlider(
+                      value: height,
+                      onChanged: (newValue) {
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      })
                 ],
               ),
             ),
