@@ -109,6 +109,34 @@ class _InputPageState extends State<InputPage> {
                       Text(
                         "WEIGHT",
                         style: textStyle,
+                      ),
+                      Text(
+                        weight.toString(),
+                        style: boldTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FloatingActionButton(
+                            onPressed: null,
+                            backgroundColor: Color(0xFF4C4F5E),
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          FloatingActionButton(
+                            onPressed: null,
+                            backgroundColor: Color(0xFF4C4F5E),
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
                       )
                     ],
                   ),

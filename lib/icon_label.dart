@@ -14,7 +14,7 @@ class IconLabel extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: 80,
+          size: 64,
         ),
         SizedBox(
           height: 15,

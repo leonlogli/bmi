@@ -5,11 +5,11 @@ const cardColor = Color(0xFF111328);
 const activeCardColor = Color(0xFF1D1E33);
 
 const textStyle = TextStyle(
-  fontSize: 18,
+  fontSize: 16,
   color: Color(0xFF8D8E98),
 );
 
 const boldTextStyle = TextStyle(
-  fontSize: 50,
+  fontSize: 32,
   fontWeight: FontWeight.w900,
 );
