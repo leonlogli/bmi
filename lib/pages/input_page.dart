@@ -1,9 +1,10 @@
-import 'package:bmi/bmi_card.dart';
-import 'package:bmi/bmi_slider.dart';
-import 'package:bmi/calculate_button.dart';
+import 'package:bmi/components/bmi_card.dart';
+import 'package:bmi/components/bmi_slider.dart';
+import 'package:bmi/components/bottom_button.dart';
+import 'package:bmi/components/icon_label.dart';
+import 'package:bmi/components/round_icon_button.dart';
 import 'package:bmi/constants.dart';
-import 'package:bmi/icon_label.dart';
-import 'package:bmi/round_icon_button.dart';
+import 'package:bmi/pages/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -189,7 +190,13 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           )),
-          CalculateButton()
+          BottomButton(
+            text: "CALCUATE",
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ResultPage()));
+            },
+          )
         ],
       ),
     );

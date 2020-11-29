@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:bmi/result_page.dart';
 
-class CalculateButton extends StatelessWidget {
+class BottomButton extends StatelessWidget {
+  final Function onPressed;
+  final String text;
+
+  BottomButton({@required this.onPressed, @required this.text});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ResultPage()));
-      },
+      onTap: onPressed,
       child: Container(
         color: Color(0xFFEB1555),
         margin: EdgeInsets.only(top: 10),
         child: Center(
           child: Text(
-            "CALCULATE",
+            text,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
         ),
