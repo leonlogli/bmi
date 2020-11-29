@@ -2,6 +2,7 @@ import 'package:bmi/bmi_card.dart';
 import 'package:bmi/bmi_slider.dart';
 import 'package:bmi/constants.dart';
 import 'package:bmi/icon_label.dart';
+import 'package:bmi/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -16,6 +17,7 @@ class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 180;
   int weight = 60;
+  int age = 19;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: BmiCard(
-                  onClick: () {
+                  onPressed: () {
                     setState(() {
                       selectedGender = Gender.male;
                     });
@@ -48,7 +50,7 @@ class _InputPageState extends State<InputPage> {
               ),
               Expanded(
                 child: BmiCard(
-                  onClick: () {
+                  onPressed: () {
                     setState(() {
                       selectedGender = Gender.female;
                     });
@@ -117,24 +119,24 @@ class _InputPageState extends State<InputPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          FloatingActionButton(
-                            onPressed: null,
-                            backgroundColor: Color(0xFF4C4F5E),
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
+                          RounndIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            onPressed: () {
+                              setState(() {
+                                weight--;
+                              });
+                            },
                           ),
                           SizedBox(
                             width: 10,
                           ),
-                          FloatingActionButton(
-                            onPressed: null,
-                            backgroundColor: Color(0xFF4C4F5E),
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
+                          RounndIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onPressed: () {
+                              setState(() {
+                                weight++;
+                              });
+                            },
                           ),
                         ],
                       )
@@ -145,6 +147,43 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 child: BmiCard(
                   bgColor: activeCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "AGE",
+                        style: textStyle,
+                      ),
+                      Text(
+                        age.toString(),
+                        style: boldTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          RounndIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            onPressed: () {
+                              setState(() {
+                                age--;
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          RounndIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onPressed: () {
+                              setState(() {
+                                age++;
+                              });
+                            },
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],

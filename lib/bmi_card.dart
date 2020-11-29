@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class BmiCard extends StatelessWidget {
   final Color bgColor;
   final Widget child;
-  final Function onClick;
+  final Function onPressed;
 
-  BmiCard({@required this.bgColor, this.child, this.onClick});
+  BmiCard({@required this.bgColor, this.child, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onClick,
+      onTap: onPressed,
       child: Container(
         child: child,
         margin: EdgeInsets.all(15),
