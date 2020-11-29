@@ -2,6 +2,7 @@ import 'package:bmi/bmi_card.dart';
 import 'package:bmi/bmi_slider.dart';
 import 'package:bmi/constants.dart';
 import 'package:bmi/icon_label.dart';
+import 'package:bmi/result_page.dart';
 import 'package:bmi/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -188,11 +189,18 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           )),
-          Container(
-            color: Color(0xFFEB1555),
-            margin: EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: 80,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ResultPage()));
+            },
+            child: Container(
+              color: Color(0xFFEB1555),
+              margin: EdgeInsets.only(top: 10),
+              child: Text("CALCULATE"),
+              width: double.infinity,
+              height: 64,
+            ),
           )
         ],
       ),

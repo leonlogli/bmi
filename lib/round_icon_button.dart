@@ -10,12 +10,15 @@ class RounndIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       onPressed: onPressed,
-      child: Icon(icon),
+      child: Icon(
+        icon,
+        size: 20,
+      ),
       shape: CircleBorder(),
       fillColor: Color(0xFF4C4F5E),
       constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
+        width: 48.0,
+        height: 48.0,
       ),
     );
   }
